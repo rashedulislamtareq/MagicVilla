@@ -1,3 +1,4 @@
+using MagicVilla_VillaAPI;
 using MagicVilla_VillaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 { 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection")); 
 });
+
+//Automapper Integration
+builder.Services.AddAutoMapper(typeof(MapperConfig));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
